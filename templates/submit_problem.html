@@ -1,0 +1,69 @@
+{% include "header.html" %}
+<section class="about_section" style="background-color:white; min-height:82.5vh; padding-top:10px">
+
+<section class="container my-5">
+    <h1 class="text-center mb-4" style="color:black">Submit a Problem</h1>
+  <form id="problemForm" method="POST" enctype="multipart/form-data">
+  <div class="row">
+    <div class="col-md-6">
+      <label for="mobile" class="form-label">Your Mobile Number</label>
+      <input type="number" class="form-control" id="mobile" name="mobile" required placeholder="Your mobile number" maxlength="10" minlength="10" />
+    </div>
+    <div class="col-md-6">
+      <label for="photo" class="form-label">Upload Photo</label>
+      <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required />
+    </div>
+    <div class="col-md-6">
+      <label for="problem_type" class="form-label">Problem Type</label>
+      <select class="form-control" id="problem_type" name="problem_type" required>
+        <option value="Water Leak">Water Leak</option>
+        <option value="Street Light">Street Light</option>
+        <option value="Traffic Issue">Traffic Issue</option>
+        <option value="Pothole">Pothole</option>
+        <option value="Garbage">Garbage</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="location" class="form-label">Add Google Maps Location Link</label>
+      <input type="text" class="form-control" id="location" name="location" required placeholder="Paste the Google Maps link here" />
+    </div>
+    <div class="col-md-12">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea class="form-control" id="comment" name="comment" placeholder="Comment" rows="3"></textarea>
+    </div>
+    <div class="col-md-12 mt-3">
+      <button type="submit" id="submitButton" class="btn btn-primary w-100" disabled>Submit Problem</button>
+    </div>
+  </div>
+</form>
+</section>
+</section>
+<script>
+  // Function to check if the form is valid
+  function validateForm() {
+    const form = document.getElementById('problemForm');
+    const submitButton = document.getElementById('submitButton');
+    let isValid = true;
+
+    // Check if all required fields are filled
+    form.querySelectorAll('input[required], select[required], textarea[required]').forEach((field) => {
+      if (!field.value) {
+        isValid = false;
+      }
+    });
+
+    // Enable or disable the submit button based on form validity
+    submitButton.disabled = !isValid;
+  }
+
+  // Attach event listeners to inputs to check for validity on change
+  document.querySelectorAll('#problemForm input[required], #problemForm select[required], #problemForm textarea[required]').forEach((input) => {
+    input.addEventListener('input', validateForm);
+  });
+
+  // Initial form validation check on page load
+  window.onload = validateForm;
+</script>
+
+{% include "footer.html" %}
