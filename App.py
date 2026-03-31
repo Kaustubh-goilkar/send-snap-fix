@@ -14,7 +14,7 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Initialize Firebase
-cred = credentials.Certificate("send-snap-9ab1c-firebase-adminsdk-fbsvc-867042e170.json")
+cred = credentials.Certificate("send-snap-fix.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 loggedInUserDetails ={}

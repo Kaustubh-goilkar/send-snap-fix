@@ -20,13 +20,25 @@
         {% for report in reports %}
         <tr>
           <td>{{ report.mobile }}</td>
-          <td>
-            <img src="{{ url_for('static', filename='uploads/' + report.photo) }}" alt="photo" width="100" class="img-thumbnail mb-1">
-            <!-- Eye Button -->
-            <button type="button" class="btn btn-outline-primary" onclick="showImageModal('{{ url_for('static', filename='uploads/' + report.photo) }}')">
-              👁️
-            </button>
+          <td class="text-center align-middle">
+            <div class="position-relative d-inline-block"
+                 style="cursor:pointer;"
+                 onclick="showImageModal('{{ url_for('static', filename='uploads/' + report.photo) }}')">
+          
+              <!-- Image -->
+              <img src="{{ url_for('static', filename='uploads/' + report.photo) }}"
+                   alt="photo"
+                   width="70"
+                   class="img-thumbnail rounded shadow-sm problem-img">
+          
+              <!-- Overlay Eye Icon -->
+              <div class="img-overlay d-flex justify-content-center align-items-center">
+                <i class="bi bi-eye text-white"></i>
+              </div>
+          
+            </div>
           </td>
+          
           <td>{{ report.problem_type }}</td>
           <td>{{ report.comment }}</td>
           <td><a href="{{ report.location }}" target="_blank">{{ report.location }}</a></td>

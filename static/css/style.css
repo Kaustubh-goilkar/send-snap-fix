@@ -656,7 +656,7 @@ a:focus {
 }
 
 .team_section .team_container .box .social_box {
-  padding: 10px 45px 20px 45px;
+  padding: 0 12rem 1rem 12rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -927,6 +927,33 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
+
+.problem-img {
+  transition: all 0.3s ease;
+}
+
+/* Hover zoom */
+.problem-img:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay */
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.position-relative:hover .img-overlay {
+  opacity: 1;
+}
+
 
 
 /*# sourceMappingURL=style.css.map */
