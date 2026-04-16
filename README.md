@@ -40,7 +40,7 @@ Make sure you have the following installed:
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Kaustubh-goilkar/send-snap-fix.git
 cd send-snap-fix
 ```
 
